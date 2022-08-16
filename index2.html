@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
+    <title>Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js" integrity="sha512-r22gChDnGvBylk90+2e/ycr3RVrDi8DIOkIGNhJlKfuyQM4tIRAI062MaV8sfjQKYVGjOBaZBOA87z+IhZE9DA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    <script type="text/javascript" src="linechart.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+</head>
+<body>
+ 
+
+
+    <nav id = "navbar-example2" class="navbar fixed-top navbar-expand-lg bg-light px-3" >
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Team Kamal</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="nav nav-pills me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#AHT">AHT</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#Queues">Queues</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#Benchmark">Benchmark</a>
+              </li>
+            </ul>
+            <span class="navbar-text" style="padding-right:10px;">
+                <a >Welcome <a id="upi"> _spPageContextInfo.userId <script>var userID=_spPageContextInfo.userLoginName;
+                document.getElementById("upi").innerHTML = userID ;
+                </script></a></a>
+                <button type="button" class="btn btn-primary">
+                    Notifications <span class="badge text-bg-secondary">4</span>
+                  </button>
+            </span>
+          </div>
+        </div>
+      </nav>
+
+    
+
+
+
+
+
+
+      <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0"  tabindex="0">
+
+    <div id ="AHT" class="container-fluid text-center  m-0 border-0 bd-example bd-example-row" style="padding-top: 60px;">
+        <div class="row">
+          <div class="col">
+            <div class="card text-dark bg-light mb-3" >
+            <div class="card-header">AHT</div>
+            <div class="card-body">
+                <br>
+                <br>
+              <h5 class="card-title p-1">AHT Score here</h5>
+             
+              <br>
+              <br>
+              <br>
+              <p class="card-text ">
+                
+                <canvas class ="w-100" id="myChartfill" >
+                    <script>
+                        chartData4 = 
+                        {
+                       
+                            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+                        datasets: [{
+                        label: 'My First Dataset',
+                        data: [10, 59, 80, 81, 56, 55, 40],
+                        fill: true,
+                        borderWidth: 1.0,
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        pointStyle : 'line',
+                        
+                     
+                        }],
+                        }
+                        ;
+                        const myChartfill = document.getElementById('myChartfill');
+                        
+                        if(myChartfill!=null){
+                        new Chart(myChartfill, {
+                           
+                          type: 'line',
+                        data: chartData4,
+                       
+                        options: { 
+                            events: [],
+                            plugins: { tooltip: { enabled: false} ,
+                            legend: {
+                            display: false},
+                            
+                                    },
+                                    scales: {
+                                         y: {
+                                            ticks: {
+                                             display: false,
+                                          },
+                                          grid: {
+                                          display: false,
+                                          },
+                                        },
+                                         x: {
+                                            ticks: {
+                                             display: false,
+                                          },
+                                          grid: {
+                                          display: false,
+                                          },
+                                          },
+                                            },
+
+                        },
+                    }
+                        )}
+                      
+                      
+                      </script>
+
+
+                </canvas>
+
+              </p>
+            </div>
+          </div>
+        </div>
+          <div class="col">
+            <div class="card text-dark bg-light mb-3" >
+                <div class="card-header">Quality</div>
+                <div class="card-body">
+                    <br>
+              <br>
+              
+                  <h5 class="card-title p-1">Quality Score here</h5>
+                  <br>
+              <br>
+              <br>
+                  <p class="card-text">
+                    <canvas class ="w-100" id="myChartfill2" >
+                        <script>
+                            chartData5 = 
+                            {
+                           
+                                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+                            datasets: [{
+                            label: 'My First Dataset',
+                            data: [31, 12, 80, 81, 2, 21, 40],
+                            fill: true,
+                            borderWidth: 1.0,
+                            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                            pointStyle : 'line',
+                            
+                         
+                            }],
+                            }
+                            ;
+                            const myChartfill2 = document.getElementById('myChartfill2');
+                            
+                            if(myChartfill2!=null){
+                            new Chart(myChartfill2, {
+                               
+                              type: 'line',
+                            data: chartData5,
+                           
+                            options: { 
+                                events: [],
+                                plugins: { tooltip: { enabled: false} ,
+                                legend: {
+                                display: false},
+                                
+                                        },
+                                        scales: {
+                                             y: {
+                                                ticks: {
+                                                 display: false,
+                                              },
+                                              grid: {
+                                              display: false,
+                                              },
+                                            },
+                                             x: {
+                                                ticks: {
+                                                 display: false,
+                                              },
+                                              grid: {
+                                              display: false,
+                                              },
+                                              },
+                                                },
+    
+                            },
+                        }
+                            )}
+                          
+                          
+                          </script>
+    
+    
+                    </canvas>
+    
+                  </p>
+
+
+                  
+                </div>
+              </div>
+
+          </div>
+          <div class="col">
+            <div class="card text-dark bg-light mb-3" >
+                <div class="card-header">Production Hour</div>
+                <div class="card-body">
+                    <br>
+                    <br>
+                  <h5 class="card-title p-1">Production Hour here</h5>
+                  <br>
+                  <br>
+                  <br>
+                  <p class="card-text">
+                    <canvas class ="w-100" id="myChartbar2" >
+                        <script>
+                            chartData6 = 
+                            {
+                           
+                                labels: ['Jan', 'Feb', 'Mar', 'Apr'],
+                            datasets: [{
+                            label: 'My First Dataset',
+                            data: [10, 20, 30, 40],
+                                 borderColor: 'rgb(255, 99, 132)',
+                              backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                            
+                            
+                         
+                            }],
+                            }
+                            ;
+                            const myChartbar2 = document.getElementById('myChartbar2');
+                            
+                            if(myChartbar2!=null){
+                            new Chart(myChartbar2, {
+                               
+                              type: 'bar',
+                            data: chartData6,
+                           
+                            options: { 
+                                events: [],
+                                plugins: { tooltip: { enabled: false} ,
+                                legend: {
+                                display: false},
+                                
+                                        },
+                                        scales: {
+                                             y: {
+                                                ticks: {
+                                                 display: false,
+                                              },
+                                              grid: {
+                                              display: false,
+                                              },
+                                            },
+                                             x: {
+                                                ticks: {
+                                                 display: false,
+                                              },
+                                              grid: {
+                                              display: false,
+                                              },
+                                              },
+                                                },
+    
+                            },
+                        }
+                            )}
+                          
+                          
+                          </script>
+    
+    
+                    </canvas>
+                  </p>
+                </div>
+              </div>
+
+          </div>
+          <div class="col" style=" height:inherit;" >
+            <div class="card">
+                <div class="card-body">
+                    <canvas id="myChart" >
+                        <script> chartData = {
+                            labels: [
+                              'Efficiency',
+                              'Quality',
+                              'Shrinkage',
+                              'Hygeine',
+                            ],
+                            datasets: [{
+                              label: 'My First Dataset',
+                              data: [50, 10, 30, 10],
+                              backgroundColor: [
+                                'rgb(255, 99, 132)',
+                                'rgb(54, 162, 235)',
+                                'rgb(255, 205, 86)',
+                                'rgb(255, 99, 132)'
+                              ],
+                              hoverOffset: 4
+                            }]
+                          };
+                              
+                    
+                          const myChart = document.getElementById('myChart');
+                    
+                    
+                    
+                    if(myChart){
+                      new Chart(myChart, {
+                        
+                          type: 'doughnut',
+                          
+                      data: chartData,
+                      options: {
+                          scales: {
+                              y:  {
+                                                ticks: {
+                                                 display: false,
+                                              },
+                                             
+                                            },
+                          }
+                      }
+                      }
+                      )}
+                    ;</script>
+
+                    </canvas>
+                </div>
+              </div>
+
+          </div>
+        </div>
+        </div>
+        <div id = "Queues" class="container-fluid text-center p-3 m-0 border-0 bd-example bd-example-row">
+        <div class="row">
+            <div class="col-8 container-fluid ">
+                <div class="card " >
+                    <div class="card-body">
+               
+                <table class="table table-hover" >
+          
+            
+            </table>
+            <script>
+                let table = document.querySelector(".table");
+                (
+                    async() => {
+                        let workbook = XLSX.read(await (await fetch("./Book.xlsx")).arrayBuffer());
+                        console.log(workbook);
+                        let worksheet = workbook.SheetNames;
+                        worksheet.forEach(name => {
+                            let html = XLSX.utils.sheet_to_html(workbook.Sheets[name]);
+                            table.innerHTML += `
+                            <h3>${name}</h3>${html}
+                            `;
+                        })
+                    }
+                )()
+            </script>
+            </div>
+        </div>
+            </div>
+            <div class="col-4  ">
+                <div class="card">
+                    <div class="card-body">
+
+                <canvas class = "w-100" id="myChart2" >
+                    <script>
+                        chartData1 = 
+                        {
+                            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+                        datasets: [{
+                        label: 'AHT',
+                        data: [10, 59, 80, 81, 56, 55, 40],
+                        fill: false,
+                        borderColor: 'rgb(75, 192, 192)',
+                        tension: 0.1,
+                        hoverOffset: 4
+                        },
+                      {
+                        label: 'Quality',
+                        data: [56,10, 59, 80, 81,  55, 40],
+                        fill: false,
+                        borderColor: 'rgb(54, 162, 235)',
+                        tension: 0.1,
+                        hoverOffset: 4
+                        },
+                        
+                        {
+                            
+                        label: 'Shrinkage',
+                        data: [81, 56, 10, 59, 80,  55, 40],
+                        fill: false,
+                        borderColor: 'rgb(255, 205, 86)',
+                        tension: 0.1,
+                        hoverOffset: 4
+                        },
+                        {
+                        label: 'Compliance',
+                        data: [55, 40, 10, 59, 80, 81, 56, ],
+                        fill: false,
+                        borderColor: 'rgb(75, 192, 192)',
+                        tension: 0.1,
+                        hoverOffset: 4
+                        }]
+                        };
+                        const myChart2 = document.getElementById('myChart2');
+                        
+                        if(myChart2!=null){
+                        new Chart(myChart2, {
+                          type: 'line',
+                        data: chartData1,
+                        options: {
+                            scales: {
+                                y: {
+                                    beginAtZero: true
+                                }
+                            }
+                        }
+                        }
+                        )}
+                      
+                      
+                      </script>
+
+
+                </canvas>
+</div>
+</div>
+
+            </div>
+          </div>
+        </div>
+        <div id = "Benchmark" class="container-fluid text-center p-3 m-0 border-0 bd-example bd-example-row">
+        <div class="row">
+            <div class="col-sm">col-sm</div>
+            <div class="col-sm">col-sm</div>
+            <div class="col-sm">
+                
+                <div class="card">
+                    <div class="card-body">
+
+<canvas id="myChartlinewithbar" >
+<script> const chartData3 = {
+  labels: [
+    'January',
+    'February',
+    'March',
+    'April'
+  ],
+  datasets: [{
+    type: 'bar',
+    label: "Team's Benchmark",
+    data: [10, 20, 30, 40],
+    borderColor: 'rgb(255, 99, 132)',
+    backgroundColor: 'rgba(255, 99, 132, 0.2)'
+  }, {
+    type: 'line',
+    label: 'Your AHT',
+    data: [30, 50, 21, 9],
+    fill: false,
+    borderColor: 'rgb(54, 162, 235)'
+  }]
+};
+      
+
+  const myChartlinewithbar = document.getElementById('myChartlinewithbar');
+
+
+
+if(myChartlinewithbar){
+new Chart(myChartlinewithbar, {
+  type: 'scatter',
+  data: chartData3,
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    }
+  }
+}
+)}
+;</script>
+
+</canvas>
+</div>
+</div>
+
+
+
+            </div>
+          </div>
+        </div>
+  </div>
+</body>
+</html>
