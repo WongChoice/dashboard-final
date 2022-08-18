@@ -455,8 +455,60 @@
         </div>
         <div id = "Benchmark" class="container-fluid text-center p-3 m-0 border-0 bd-example bd-example-row">
         <div class="row">
-            <div class="col-sm">col-sm</div>
-            <div class="col-sm">col-sm</div>
+            <div class="col-sm">Chart to show team's Live AHT cloaking the name of everyone else exept _spPageContextInfo.userId</div>
+            <div class="col-sm">
+
+                <div class="card  ">
+                    <div class="card-body h-100">
+                <canvas id="myChartlinewithbar22" class="w-100">
+                <script>
+                 const chartData11 = {
+                    labels: [
+                      'January',
+                      'February',
+                      'March',
+                      'April'
+                    ],
+                    datasets: [{
+                      type: 'bar',
+                      label: "Team's Benchmark",
+                      data: [10, 20, 30, 40],
+                      borderColor: 'rgb(255, 99, 132)',
+                      backgroundColor: 'rgba(255, 99, 132, 0.2)'
+                    }, {
+                      type: 'line',
+                      label: 'Your Quality',
+                      data: [30, 90, 60, 9],
+                      fill: false,
+                      borderColor: 'rgb(54, 162, 235)'
+                    }]
+                  };
+                        
+                  
+                    const myChartlinewithbar22 = document.getElementById('myChartlinewithbar22');
+                  
+                  
+                  
+                  if(myChartlinewithbar22){
+                  new Chart(myChartlinewithbar22, {
+                    type: 'scatter',
+                    data: chartData11,
+                    options: {
+                      scales: {
+                        y: {
+                          beginAtZero: true
+                        }
+                      }
+                    }
+                  }
+                  )}
+                  ;</script>
+
+</canvas>
+</div>
+</div>
+
+            </div>
             <div class="col-sm">
                 
                 <div class="card">
