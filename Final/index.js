@@ -1,5 +1,5 @@
 let worksheetname = 'January';
-
+let c1="stu";
 (async() => {
     let workbook = XLSX.read(await (await fetch("./Final.xlsx")).arrayBuffer());
     
@@ -14,17 +14,27 @@ let worksheetname = 'January';
    console.log(sheet['A1'].v);
     let i= (range['e'].r) ;
     console.log(i);
+    var   max =0;
+    let  ahtofda;
+    let  qualityofda;
     while ( i-- ) {
-    if((sheet['C'+(i+1)].v)>(sheet['C'+(i+2)].v)){
-     var   max = (sheet['F'+(i+1)].v);
+        if (i>1){
+            console.log((sheet['F'+(i)].v));
+    if(max<(sheet['F'+(i)].v)){
+        max = (sheet['F'+(i)].v);
     }
 
- if(c===(sheet['C'+(i+1)].v)){
-document.getElementById('ahat').innerHTML=sheet['E'+(i+1)].v;
-document.getElementById('qulty').innerHTML= sheet['F'+(i+1)].v+"% Quality <br> vs<br> Benchmark of "+max+"%";
+ if(c1===(sheet['C'+(i)].v)){
+  ahtofda =sheet['E'+(i)].v;
+  qualityofda = sheet['F'+(i)].v;
 } 
-
 }
+}
+
+document.getElementById('ahat').innerHTML=ahtofda;
+document.getElementById('qulty').innerHTML= qualityofda+"% Quality <br> vs<br> Benchmark of "+max+"%";
+
+
 })();
 (async() => {
     let workbook = XLSX.read(await (await fetch("./Book.xlsx")).arrayBuffer());
