@@ -14,7 +14,7 @@
 </head>
 <body>
 <script>
- 
+
 
 
 
@@ -38,7 +38,16 @@
               <li class="nav-item">
                 <a class="nav-link" href="#Benchmark">Benchmark</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+                  Useful Links
+                </a>
+
+
+              </li>
             </ul>
+
+       
             <span class="navbar-text" style="padding-right:10px;">
                 <a >Welcome <a id="upi"> _spPageContextInfo.userId 
                   <script>
@@ -56,6 +65,39 @@
         </div>
       </nav>
 
+
+      <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasExampleLabel">Useful Links</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <div>
+          
+            
+            <div class="list-group">
+            
+              <a href="#" class="list-group-item list-group-item-action">En_GB</a>
+              <a href="#" class="list-group-item list-group-item-action">En_US</a>
+              <a href="#" class="list-group-item list-group-item-action">Core</a>
+              <a class="list-group-item list-group-item-action disabled">A disabled link item</a>
+            </div>
+
+
+
+          </div>
+          <div class="dropdown mt-3">
+            <button class="btn btn-secondary dropdown-toggle"  type="button" data-bs-toggle="dropdown">
+              Stuff
+            </button>
+            <ul class="dropdown-menu"  id = "dropupown" >
+
+           
+              <li   > <a class="dropdown-item"  href="#">Immediate Links like of quip fetches <br> from a list of excel created</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
       <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0"  tabindex="0">
 
     <div id ="AHT" class="container-fluid text-center  m-0 border-0 bd-example bd-example-row" style="padding-top: 60px;">
@@ -75,7 +117,7 @@
                 
                 <canvas class ="w-100" id="myChartfill" >
                     <script>
-let                      c="stu";
+let                      c1="stu";
 console.log("Test"); // rough i know but will centralise later this is ifor demo
 (async() => {
     let workbook = XLSX.read(await (await fetch("./Final.xlsx")).arrayBuffer());
@@ -86,13 +128,13 @@ console.log("Test"); // rough i know but will centralise later this is ifor demo
     sheet =  workbook.Sheets[worksheet[1]];
     const range = XLSX.utils.decode_range(sheet["!ref"]||"A1");
     console.log((range['e'].r) + 1);
-    console.log(c);
+    console.log(c1);
     let i= (range['e'].r) + 1;
     var z=0
 let    arrayforchartquality = [];
     while ( i-- ) {
       console.log(sheet['C'+i].v);
- if(c===(sheet['C'+i].v)){
+ if(c1===(sheet['C'+i].v)){
   console.log(sheet['C'+i].v);
   console.log("found");
   //let qulty= sheet['F'+i].v;
@@ -107,8 +149,6 @@ break;
 }
                         chartData4 = 
                         {
-
-                       
                             labels: worksheet,
                         datasets: [{
                         label: 'My First Dataset',
@@ -187,7 +227,7 @@ break;
                         <script>
 
 
-//let                      c="stu";
+let c="stu";
 console.log("Test"); // rough i know but will centralise later this is ifor demo
 (async() => {
     let workbook = XLSX.read(await (await fetch("./Final.xlsx")).arrayBuffer());
@@ -380,6 +420,7 @@ console.log("Test"); // rough i know but will centralise later this is ifor demo
     let workbook = XLSX.read(await (await fetch("./Final.xlsx")).arrayBuffer());
     
     let worksheet = workbook.SheetNames;
+    
    // let excelRowsObjArr = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[worksheet[1]]);
    
     sheet =  workbook.Sheets[worksheet[1]];
@@ -392,13 +433,14 @@ let    arrayforchartpi = [];
 let arrayforchartpi2 = [];
     while ( i-- ) {
       console.log(sheet['C'+i].v);
- if(c===(sheet['C'+i].v)){
+ if(c1===(sheet['C'+i].v)){
   console.log(sheet['C'+i].v);
   console.log("found");
   //let qulty= sheet['F'+i].v;
   //let Ahat=sheet['E'+i].v;
 
     arrayforchartpi[0]= sheet['E'+i].v;
+
     arrayforchartpi2[0]= sheet['E1'].v;
     arrayforchartpi[1]= sheet['F'+i].v;
     arrayforchartpi2[1]= sheet['F1'].v;
@@ -477,7 +519,7 @@ break;
             
             </table>
             <script>
-              
+              /*
                 let table = document.querySelector(".table");
                 (
                     async() => {
@@ -494,6 +536,7 @@ break;
                         })
                     }
                 )()
+                */
             </script>
             </div>
         </div>
@@ -504,12 +547,66 @@ break;
 
                 <canvas class = "w-100" id="myChart2" >
                     <script>
+
+
+
+
+
+                    
+
+//let                      c="stu";
+console.log("Test"); // rough i know but will centralise later this is ifor demo
+(async() => {
+    let workbook = XLSX.read(await (await fetch("./Final.xlsx")).arrayBuffer());
+    
+    let worksheet = workbook.SheetNames;
+    
+   // let excelRowsObjArr = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[worksheet[1]]);
+   
+    
+    const range = XLSX.utils.decode_range(sheet["!ref"]||"A1");
+    console.log((range['e'].r) + 1);
+    console.log(c1);
+    var i= (range['e'].r) + 1;
+    var z=0;
+    var countersheet=0;
+let    arrayforaht2 = [];
+let arrayforquality2 = [];
+let arrayforshrinkage2 = [];
+let arrayforcomplian2 = [];
+worksheet.forEach(element => {
+  console.log(element);
+
+  sheet =  workbook.Sheets[[element]];
+  console.log((sheet['C'+i].v));
+  i= (range['e'].r) + 1;
+    while ( i-- ) {
+      console.log((sheet['C'+i].v));
+ if(c1===(sheet['C'+i].v)){
+ 
+  //let qulty= sheet['F'+i].v;
+  //let Ahat=sheet['E'+i].v;
+
+    arrayforaht2[countersheet]= sheet['E'+i].v;
+    arrayforquality2[countersheet]= sheet['F'+i].v;
+    arrayforshrinkage2[countersheet]= sheet['K'+i].v;
+    arrayforcomplian2[countersheet]= sheet['J'+i].v;
+    break;
+ }
+
+}
+console.log(countersheet);
+countersheet++;
+});
+
+
+
                         chartData1 = 
                         {
-                            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+                            labels: worksheet,
                         datasets: [{
                         label: 'AHT',
-                        data: [10, 59, 80, 81, 56, 55, 40],
+                        data: arrayforaht2,
                         fill: false,
                         borderColor: 'rgb(75, 192, 192)',
                         tension: 0.1,
@@ -517,7 +614,7 @@ break;
                         },
                       {
                         label: 'Quality',
-                        data: [56,10, 59, 80, 81,  55, 40],
+                        data: arrayforquality2,
                         fill: false,
                         borderColor: 'rgb(54, 162, 235)',
                         tension: 0.1,
@@ -527,7 +624,7 @@ break;
                         {
                             
                         label: 'Shrinkage',
-                        data: [81, 56, 10, 59, 80,  55, 40],
+                        data: arrayforshrinkage2,
                         fill: false,
                         borderColor: 'rgb(255, 205, 86)',
                         tension: 0.1,
@@ -535,7 +632,7 @@ break;
                         },
                         {
                         label: 'Compliance',
-                        data: [55, 40, 10, 59, 80, 81, 56, ],
+                        data: arrayforcomplian2,
                         fill: false,
                         borderColor: 'rgb(75, 192, 192)',
                         tension: 0.1,
@@ -557,7 +654,9 @@ break;
                         }
                         }
                         )}
-                      
+                        
+                  }
+)()
                       
                       </script>
 
@@ -631,7 +730,19 @@ break;
                     <div class="card-body">
 
 <canvas id="myChartlinewithbar" >
-<script> const chartData3 = {
+<script> 
+
+
+
+
+
+
+
+
+
+
+
+const chartData3 = {
   labels: [
     'January',
     'February',
