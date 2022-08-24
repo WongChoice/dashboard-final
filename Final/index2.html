@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./bootstrap.min.css" rel="stylesheet">
     <link href="./docs.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./index.css"  />
     <title>Dashboard</title>
     <script src="./bootstrap.bundle.min.js"></script>
     <script src="./chart.js"></script>
@@ -13,6 +14,9 @@
     <script src="./index.js"></script>
 </head>
 <body>
+
+
+
 <script>
 
 
@@ -107,11 +111,11 @@
             <div class="card-header">AHT</div>
             <div class="card-body">
                 <br>
-                <br>
+                
               <h5 class="card-title p-1" id = "ahat">AHT Score here</h5>
              
              
-              <br>
+             
               <br>
               <p class="card-text ">
                 
@@ -125,28 +129,33 @@ console.log("Test"); // rough i know but will centralise later this is ifor demo
     let worksheet = workbook.SheetNames;
    // let excelRowsObjArr = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[worksheet[1]]);
    
-    sheet =  workbook.Sheets[worksheet[1]];
+    let sheet =  workbook.Sheets[worksheet[1]];
+     
     const range = XLSX.utils.decode_range(sheet["!ref"]||"A1");
     console.log((range['e'].r) + 1);
     console.log(c1);
     let i= (range['e'].r) + 1;
-    var z=0
+    var z=0;
 let    arrayforchartquality = [];
     while ( i-- ) {
       console.log(sheet['C'+i].v);
  if(c1===(sheet['C'+i].v)){
   console.log(sheet['C'+i].v);
-  console.log("found");
+  console.log("found"+worksheet);
   //let qulty= sheet['F'+i].v;
   //let Ahat=sheet['E'+i].v;
   worksheet.forEach(element => {
-    arrayforchartquality[z]= sheet['F'+i].v;
+    sheet1 =  workbook.Sheets[element];
+    console.log(sheet1['F'+i].v);
+    arrayforchartquality[z]= sheet1['F'+i].v;
+    
     z++;
   });
 break;
  }
 
 }
+console.log(arrayforchartquality);
                         chartData4 = 
                         {
                             labels: worksheet,
@@ -236,6 +245,7 @@ console.log("Test"); // rough i know but will centralise later this is ifor demo
    // let excelRowsObjArr = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[worksheet[1]]);
    
     sheet =  workbook.Sheets[worksheet[1]];
+   
     const range = XLSX.utils.decode_range(sheet["!ref"]||"A1");
     console.log((range['e'].r) + 1);
     console.log(c);
@@ -250,7 +260,8 @@ let    arrayforchartAHT = [];
   //let qulty= sheet['F'+i].v;
   //let Ahat=sheet['E'+i].v;
   worksheet.forEach(element => {
-    arrayforchartAHT[z]= sheet['E'+i].v;
+    sheet1 =  workbook.Sheets[element];
+    arrayforchartAHT[z]= sheet1['E'+i].v;
     z++;
   });
 break;
@@ -796,5 +807,40 @@ new Chart(myChartlinewithbar, {
           </div>
         </div>
   </div>
+ 
+    <button class = "float" id = "csstext" type="button" data-bs-toggle="modal"  data-bs-target="#staticBackdrop"   > Click
+
+    </button>
+ 
+   
+
+   
+    
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Monthly Feedback</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="exampleFormControlTextarea1" class="form-label">DAs Input</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="exampleFormControlTextarea1" class="form-label">Manager's Input</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+ 
 </body>
 </html>

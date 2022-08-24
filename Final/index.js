@@ -1,5 +1,21 @@
 let worksheetname = 'January';
 let c1="stu";
+
+function secondsToHMS(secs) {
+    function z(n) { return (n < 10 ? '0' : '') + n; }
+    var sign = secs < 0 ? '-' : '';
+    secs = Math.abs(secs);
+    return sign + z(secs / 3600 | 0) + ':' + z((secs % 3600) / 60 | 0) + ':' + z(secs % 60);
+
+
+}
+function hmsToSeconds(s) {
+    var b = toString(s).split(':');
+    return b[0] * 3600 + b[1] * 60 + (+b[2] || 0);
+}
+
+
+
 (async() => {
     let workbook = XLSX.read(await (await fetch("./Final.xlsx")).arrayBuffer());
     
@@ -15,6 +31,7 @@ let c1="stu";
     let i= (range['e'].r) ;
     console.log(i);
     var   max =0;
+    var   max1 =0;
     let  ahtofda;
     let  qualityofda;
     while ( i-- ) {
@@ -22,6 +39,9 @@ let c1="stu";
             console.log((sheet['F'+(i)].v));
     if(max<(sheet['F'+(i)].v)){
         max = (sheet['F'+(i)].v);
+    }
+    if(max<(sheet['E'+(i)].v)){
+        max1 = (sheet['E'+(i)].v);
     }
 
  if(c1===(sheet['C'+(i)].v)){
@@ -31,7 +51,7 @@ let c1="stu";
 }
 }
 
-document.getElementById('ahat').innerHTML=ahtofda;
+document.getElementById('ahat').innerHTML=ahtofda +" AHT <br> vs<br> Benchmark of "+max1 ;
 document.getElementById('qulty').innerHTML= qualityofda+"% Quality <br> vs<br> Benchmark of "+max+"%";
 
 
@@ -55,19 +75,24 @@ let    column1=[];
    var sumofcolumn=0;
 var count =0;
     const range = XLSX.utils.decode_range(sheet["!ref"]||"A1");
-   
+   var seconsd=0;
     let i= (range['e'].r) ;
     console.log(i);
     while ( i-- ) {
 
     if((sheet['A'+(i+1)].v)===(sheet['A'+(i+2)].v)){
      column1[nextname] = (sheet['A'+(i+1)].v);
-     sumofcolumn = sumofcolumn + (sheet['B'+(i+1)].v);
+     
+      seconsd = hmsToSeconds(toString(sheet['B'+(i+1)].v));
+     console.log("hsm"+(sheet['B'+(i+1)].v));
+     sumofcolumn = sumofcolumn + seconsd;
+
+
       count = count+1;
     }
     else{
         
-        column2[nextname]=sumofcolumn;
+        column2[nextname]=secondsToHMS(sumofcolumn);
         
 column3[nextname] = column2[nextname] +"/"+count;
 
