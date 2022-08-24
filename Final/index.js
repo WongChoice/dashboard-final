@@ -101,6 +101,7 @@ column3[nextname] = column2[nextname] +"/"+count;
 arraytotb[nextname+1] = "<tr><td>"+column1[nextname]+"</td><td>"+ column2[nextname]+"</td><td>"+ column3[nextname]+"</td></tr>";
 nextname = nextname+1;
 count=0;
+sumofcolumn=0;
     }
 }
 });
