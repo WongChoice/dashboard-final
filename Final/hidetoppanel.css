@@ -1,0 +1,11 @@
+
+#s4-workspace,#s4-bodyContainer,#contentBox, #DeltaPageStatusBar{
+
+    display: none !important;
+ 
+ }
+ #RibbonContainer_activeTabId{
+ 
+      display: none !important;
+ }
+ 
