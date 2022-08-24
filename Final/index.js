@@ -1,4 +1,9 @@
-let worksheetname = 'January';
+
+
+
+   let  worksheetname='January';
+
+
 let c1="stu";
 
 function secondsToHMS(secs) {
@@ -108,4 +113,26 @@ sumofcolumn=0;
 
 console.log(arraytotb);
 document.querySelector(".table").innerHTML = arraytotb;
-})()
+})();
+
+
+/*
+var checkbox = document.querySelector("input[type=checkbox][name=February][id=secondCheckbox]");
+
+checkbox.addEventListener('change', function() {
+  if (this.checked) {
+    worksheetname = 'February';
+  } else {
+    console.log("Checkbox is not checked..");
+  }
+});
+var checkbox = document.querySelector("input[type=checkbox][name=March][id=thirdCheckbox]");
+
+checkbox.addEventListener('change', function() {
+  if (this.checked) {
+    worksheetname = 'March';
+  } else {
+    console.log("Checkbox is not checked..");
+  }
+});
+*/

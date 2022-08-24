@@ -12,6 +12,7 @@
     <script src="./chart.js"></script>
     <script src="./xlsx.full.min.js" integrity="sha512-r22gChDnGvBylk90+2e/ycr3RVrDi8DIOkIGNhJlKfuyQM4tIRAI062MaV8sfjQKYVGjOBaZBOA87z+IhZE9DA==" crossorigin="anonymous" referrerpolicy="no-referrer"> //01000000 01100001 01101110 01101011 01101001 01110100 01100100 01100001 </script> 
     <script src="./index.js"></script>
+    <script src="./listener.js" defer></script>
 </head>
 <body>
 
@@ -79,12 +80,46 @@
           <div>
           
             
-            <div class="list-group">
-            
+      
+              <div class="accordion" id="accordionExample">
+
+              
+               <div class="accordion-item">
+              
+                
+                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                  Month
+                </button>
+
+                <div id="collapseOne" class="accordion-collapse collapse "  data-bs-parent="#accordionExample">
+                  
+                    <ul class="list-group">
+                      <li class="list-group-item">
+                        <input class="form-check-input me-1" type="checkbox" name="January" id="firstCheckbox">
+                        January</input>
+                      </li>
+                      <li class="list-group-item">
+                        <input class="form-check-input me-1" type="checkbox" value="February" id="secondCheckbox">
+                        <label class="form-check-label" for="secondCheckbox">February</label>
+                      </li>
+                      <li class="list-group-item">
+                        <input class="form-check-input me-1" type="checkbox" value="March" id="thirdCheckbox">
+                        <label class="form-check-label" for="thirdCheckbox">March</label>
+                      </li>
+                    </ul>
+                
+              
+              </div>
+            </div>
+          </div>
+ 
+              <div class="list-group">
               <a href="#" class="list-group-item list-group-item-action">En_GB</a>
               <a href="#" class="list-group-item list-group-item-action">En_US</a>
               <a href="#" class="list-group-item list-group-item-action">Core</a>
               <a class="list-group-item list-group-item-action disabled">A disabled link item</a>
+
+              
             </div>
 
 
@@ -843,4 +878,6 @@ new Chart(myChartlinewithbar, {
     </div>
  
 </body>
+
+
 </html>
