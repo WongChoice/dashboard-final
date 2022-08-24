@@ -10,7 +10,7 @@ function secondsToHMS(secs) {
 
 }
 function hmsToSeconds(s) {
-    var b = toString(s).split(':');
+    var b = s.toString().split(':');
     return b[0] * 3600 + b[1] * 60 + (+b[2] || 0);
 }
 
@@ -75,7 +75,7 @@ let    column1=[];
    var sumofcolumn=0;
 var count =0;
     const range = XLSX.utils.decode_range(sheet["!ref"]||"A1");
-   var seconsd=0;
+  let seconsd;
     let i= (range['e'].r) ;
     console.log(i);
     while ( i-- ) {
@@ -83,7 +83,9 @@ var count =0;
     if((sheet['A'+(i+1)].v)===(sheet['A'+(i+2)].v)){
      column1[nextname] = (sheet['A'+(i+1)].v);
      
-      seconsd = hmsToSeconds(toString(sheet['B'+(i+1)].v));
+      seconsd = hmsToSeconds(sheet['B'+(i+1)].v);
+      console.log(sheet['B'+(i+1)].v);
+      console.log(hmsToSeconds('10:30:29'));
      console.log("hsm"+(sheet['B'+(i+1)].v));
      sumofcolumn = sumofcolumn + seconsd;
 
